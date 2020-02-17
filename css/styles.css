@@ -7,6 +7,7 @@
 :root {
     /* Navigation width variable*/
     --nav-width: 100vw;
+    --colorhead: #2c2c2c;
 }
 
 html,
@@ -30,7 +31,7 @@ body {
 }
 
 nav {
-    background-color: #111;
+    background-color: #111111;
     transition: 0.5s;
 }
 
@@ -45,7 +46,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #4e5256;;
+    background-color: var(--colorhead);
     position: fixed;
     top: 0;
     z-index: 15;
@@ -56,9 +57,12 @@ header {
 footer {
     grid-area: ft;
     background-color: #2c2c2c;
-    color: white;
     margin-top: 0.8em;
     padding: 0.5em 0 0.5em 0;
+}
+
+footer p {
+    color: #ffffff;
 }
 
 main {
@@ -70,7 +74,6 @@ h2 {
     margin: 0 0 0 0;
     padding: 0 0 0 20px;
     font-weight: normal;
-    color: #173e43;
     font-family: 'Hammersmith One', sans-serif;
     text-shadow: 0 -1px 0 rgba(46, 49, 49, 0.4);
     position: relative;
@@ -110,9 +113,10 @@ figcaption {
 .header-ctaLink {
     margin: auto;
     padding: .5rem 3rem;
-    border: 1px solid #fff;
+    border: 1px solid #ffffff;
     border-radius: 3px;
-    color: #fff;
+    background-color: #ffffff;
+    color: var(--colorhead);
     font-size: 0.875rem;
     text-decoration: none;
     font-weight: bold;
@@ -127,7 +131,7 @@ figcaption {
     display: block;
     width: 100%;
     margin: auto;
-    background-color: #4e5256;
+    background-color: var(--colorhead);
 }
 
 .header-triangle::after {
@@ -294,7 +298,6 @@ div.menu {
 .menu-element-list {
     align-items: baseline;
     flex: none;
-    margin-top: auto;
 }
 
 .sidenav {
@@ -312,13 +315,16 @@ div.menu {
     padding: 0.5em 0.5em 0.5em 2em;
     text-decoration: none;
     font-size: 1rem;
-    color: white;
+    color: #ffffff;
     display: block;
     transition: 0.3s;
 }
 
-.sidenav a:hover {
-    color: #f1f1f1;
+.sidenav a:hover,
+button:hover,
+.header-ctaLink:hover {
+    color: #007bf7;
+    border-color: #007bf7;
 }
 
 .closebtn {
@@ -342,7 +348,6 @@ div.menu {
 .openbtn {
     font-size: 1.75rem;
     cursor: pointer;
-    color: #d4dce0;
 }
 
 /* ----------- icon to up ----------- */
@@ -467,7 +472,7 @@ div.menu {
         display: block;
         padding: .5rem 1rem .5rem 1rem;
         text-align: right;
-        color: white;
+        color: var(--colorhead);
     }
 
     nav .header-cta {
