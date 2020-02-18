@@ -1,5 +1,4 @@
-# tribute-to-Ralph-Modejski
-🌉 Tribute Page 🌉
+# 🌉 Tribute Page 🌉
 
 Ralph Modejski tribute page (Website Design & Development)
 
