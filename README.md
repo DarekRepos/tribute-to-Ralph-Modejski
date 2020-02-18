@@ -1,7 +1,7 @@
 # tribute-to-Ralph-Modejski
-[![made in](#)](poland)
+🌉 Tribute Page 🌉
 
-Tribute Page - Ralph Modejski tribute page (Website Design & Development)
+Ralph Modejski tribute page (Website Design & Development)
 
 ## About
 I decided make my own project - tribute page. I chose Ralph Modjeski for this tribute page because i want to show the story of master engineer Ralph Modjeski besides learning new technology.
