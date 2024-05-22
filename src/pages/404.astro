@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Page.astro";
+import Container from "../components/core/Container.astro";
+import TextCardSection from "../components/section/TextCardSection.astro";
+import Button from "../components/buttons/Button.astro";
+---
+
+<Layout>
+    <Container>
+        <TextCardSection>
+            <div class="section-container">
+                <h1>404</h1>
+                <h2>Page Not Found 👀</h2>
+                <div class="cta-buttons__container">
+                    <Button href="/"> Return Home </Button>
+                </div>
+            </div>
+        </TextCardSection>
+    </Container>
+</Layout>
+
+<style style="scss">
+    .section-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    
+    }
+    .cta-buttons__container {
+        display: flex;
+        flex-wrap: wrap;
+        &:global(a) {
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+        > a {
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+    .cta-buttons__container .code-buttons__container {
+        margin: 1rem auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+</style>
