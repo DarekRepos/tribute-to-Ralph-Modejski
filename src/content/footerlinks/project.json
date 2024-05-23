@@ -1,0 +1,17 @@
+{
+    "title": "Project",
+    "items": [
+        {
+            "title": "About",
+            "slug": "/about/me"
+        },
+        {
+            "title": "Github",
+            "slug": "https://github.com/DarekRepos/tribute-to-Ralph-Modejski"
+        },
+        {
+            "title": "Contact",
+            "slug": "/contact/info"
+        }
+    ]
+}

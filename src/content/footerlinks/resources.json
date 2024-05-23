@@ -1,0 +1,21 @@
+{
+    "title": "Tribute",
+    "items": [
+        {
+            "title": "Get Started",
+            "slug": "/"
+        },
+        {
+            "title": "Live",
+            "slug": "/live"
+        },
+        {
+            "title": "Did you know?",
+            "slug": "/side-notes"
+        },
+        {
+            "title": "Notable Projects",
+            "slug": "/projects"
+        }
+    ]
+}

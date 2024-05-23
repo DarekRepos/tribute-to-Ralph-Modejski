@@ -1,0 +1,28 @@
+{
+    "links": [
+        {
+            "title": "Home",
+            "slug": "/"
+        },
+        {
+            "title": "Live",
+            "slug": "/live"
+        },
+        {
+            "title": "Did You Know?",
+            "slug": "/side-notes"
+        },
+        {
+            "title": "Notable Projects",
+            "slug": "/projects"
+        },
+        {
+            "title": "About me",
+            "slug": "/about/me"
+        },
+        {
+            "title": "Contact",
+            "slug": "/contact/info"
+        }
+    ]
+}
