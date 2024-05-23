@@ -1,6 +1,7 @@
 ---
 import Container from "../components/core/Container.astro";
 import Layout from "../layouts/Page.astro";
+import { Image } from "astro:assets";
 ---
 
 <Layout>
@@ -8,13 +9,19 @@ import Layout from "../layouts/Page.astro";
 		<article class="container">
 			<h1 id="title">Ralph Modejski</h1>
 			<figure class="img-caption">
-				<img
-					alt="RALPH MODJESKI"
-					class="tribute-image"
-					src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Rudolf.Modrzejewski.1931.jpg"
+				<Image
+					src={"/tribute-to-Ralph-Modejski/images/Rudolf.Modrzejewski.1931.jpg"}
+					alt={"Rudolf Modrzejewski w 1931 roku"}
+					width={390}
+					height={495}
+					loading="eager"
+					format="webp"
+					class=""
 				/>
+
 				<figcaption>
-					Civil engineer <br> Ralph Modjeski (Rudolf Modrzejewski) <br> in 1931.
+					Civil engineer <br /> Ralph Modjeski (Rudolf Modrzejewski) <br
+					/> in 1931.
 				</figcaption>
 			</figure>
 		</article>
@@ -47,7 +54,7 @@ import Layout from "../layouts/Page.astro";
 	}
 
 	.container {
-		display: flex; 
+		display: flex;
 		flex-direction: column;
 	}
 </style>
