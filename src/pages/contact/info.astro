@@ -1,0 +1,50 @@
+---
+import Container from "../../components/core/Container.astro";
+import Layout from "../../layouts/Page.astro";
+---
+
+<Layout>
+    <Container>
+        <div class="container">
+            <div class="contact-section">
+                <h2>Contact Us</h2>
+                <p>
+                    If you have any questions or need further information, feel
+                    free to reach out to me via email.
+                </p>
+                <a href="mailto:email-me@darekduda.pl" class="email-link"
+                    >Email Me</a
+                >
+            </div>
+        </div>
+    </Container>
+</Layout>
+<style lang="scss">
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .contact-section {
+        background-color: #fff;
+        padding: 20px;
+    }
+    .contact-section h2 {
+        margin-top: 0;
+    }
+    .contact-section p {
+        font-size: 1.2em;
+    }
+    .email-link {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: var(--c-info);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .email-link:hover {
+        background-color: var(--c-dark-info);
+    }
+</style>

@@ -1,0 +1,75 @@
+---
+import Container from "../../components/core/Container.astro";
+import Layout from "../../layouts/Page.astro";
+
+---
+
+<Layout>
+    <Container>
+        
+        <section class="tribute-text" id="tribute-info">
+            <h2 class="article-title">Live</h2>
+            <p>
+                He was <strong>born in Bochnia</strong> , then in Galicia, on January 27, 1861, to Gustav Sinnmayer
+                Modrzejewski and actress Helena Opid Modrzejewska (best known outside Poland as Helena Modjeska).
+            </p>
+            <p>
+                He was a <strong>classmate of Ignacy Jan Paderewski in Poland </strong> and was a formidable pianist
+                in his own right.
+            </p>
+            <p>
+                The son returned to Europe to study at l'Ecole des Ponts et Chaussées (<strong>the School of Bridges
+                and Roads</strong>) in Paris, France. It was in 1883, while studying at Paris, that he obtained
+                American citizenship. However, he always maintained contact with Poland, wrote much in Polish, and
+                emphasized his Polish origins.
+            </p>
+            <p>
+                In 1885 he <strong>graduated from the School of Bridges and Roads at the top of his class</strong>.
+                The same year, he married Felicie Benda; the couple had three children. He would later marry
+                Virginia Mary Giblyn.
+            </p>
+            <p>
+                Modjeski returned to America to begin his career, <strong>working first under the "father of
+                American bridge-building,"</strong> George S. Morison. In 1893, in Chicago, Modjeski <strong>opened
+                his own design office, which still exists as "Modjeski & Masters,"</strong> after it was joined in
+                1924 by Frank M. Masters.
+            </p>
+            <p>
+                Modjeski's <strong>first project as chief engineer was the railroad bridge across the Mississippi
+                River at Rock Island, Illinois</strong>. During his career, he served as chief or consulting
+                engineer on dozens of bridges around the country.
+            </p>
+            <p>
+                He took over the mis-designed Quebec Bridge after the 1907 disaster that killed 75 workers, and
+                <strong>succeeded in creating the longest truss span in the world</strong> (though a construction
+                accident killed another thirteen workers). It is still the longest cantilever bridge in the world.
+            </p>
+            <p>
+                He died June 26, 1940, in Los Angeles, California.
+            </p>
+        </section>
+    </Container>
+</Layout>
+
+
+<style lang="scss">
+    .tribute-text {
+        padding-block: 1rem 3rem;
+    }
+    .tribute-text > p {
+        font-size: large;
+        @media (min-width: 600px) {
+            font-size: x-large;
+        }
+    }
+    .article-title {
+        padding: 2em 0 2em 0;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: x-large;
+        @media (min-width: 600px) {
+            font-size: xx-large;
+        }
+    }
+</style>

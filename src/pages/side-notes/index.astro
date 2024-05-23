@@ -1,0 +1,76 @@
+---
+import Container from "../../components/core/Container.astro";
+import Layout from "../../layouts/Page.astro";
+---
+
+<Layout>
+    <Container>
+        <section class="tribute-text">
+            <h2 class="article-title">Did You Know?</h2>
+            <p>Modjeski was considered</p>
+            <blockquote>America's greatest bridge builder.</blockquote>
+            <p>in 1903.</p>
+            <p>
+                He built nearly <strong>40 bridges</strong> spanning the great rivers
+                of North America.
+            </p>
+            <p>
+                He <strong>trained</strong> succeeding <strong
+                    >generations of American bridge designers and builders</strong
+                >, including Joseph B. Strauss, chief engineer of San
+                Francisco's Golden Gate Bridge.
+            </p>
+        </section>
+    </Container>
+</Layout>
+
+<style lang="scss">
+    .tribute-text {
+        padding-top: 1rem;
+    }
+    .tribute-text > p {
+        font-size: large;
+        @media (min-width: 600px) {
+            font-size: x-large;
+        }
+    }
+    .article-title {
+        padding: 2em 0 2em 0;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    blockquote {
+        border-radius: 3px;
+        position: relative;
+        font-style: italic;
+        text-align: center;
+        padding: 2rem 1.2rem;
+        width: 30%; /* create space for the quotes */
+        margin: 1rem auto 2rem;
+        color: #4a4a4a;
+    }
+
+    /* -- create the quotation marks -- */
+    blockquote:before,
+    blockquote:after {
+        font-family: FontAwesome, sans-serif;
+        position: absolute;
+        top: 13px;
+        color: #e8e8e8;
+        font-size: 2rem;
+    }
+
+    blockquote:before {
+        content: "\f10d";
+        margin: 1em 1em 0 0;
+        right: 100%;
+    }
+
+    blockquote:after {
+        content: "\f10e";
+        margin: 0 0 1em 1em;
+        left: 100%;
+    }
+</style>

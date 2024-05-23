@@ -1,0 +1,53 @@
+---
+import Container from "../components/core/Container.astro";
+import Layout from "../layouts/Page.astro";
+---
+
+<Layout>
+	<Container>
+		<article class="container">
+			<h1 id="title">Ralph Modejski</h1>
+			<figure class="img-caption">
+				<img
+					alt="RALPH MODJESKI"
+					class="tribute-image"
+					src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Rudolf.Modrzejewski.1931.jpg"
+				/>
+				<figcaption>
+					Civil engineer <br> Ralph Modjeski (Rudolf Modrzejewski) <br> in 1931.
+				</figcaption>
+			</figure>
+		</article>
+	</Container>
+</Layout>
+
+<style lang="scss">
+	@use "../styles/utils" as u;
+	@use "../styles/mixin" as r;
+
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 1em;
+		width: 100%;
+	}
+
+	figcaption {
+		padding-top: 2em;
+		text-align: center;
+	}
+
+	.tribute-image {
+		width: 100%;
+		max-width: 300px;
+		height: auto;
+		object-fit: cover;
+		object-position: bottom;
+	}
+
+	.container {
+		display: flex; 
+		flex-direction: column;
+	}
+</style>
