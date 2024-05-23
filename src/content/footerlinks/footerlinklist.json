@@ -1,0 +1,13 @@
+{
+    "title": "Awesome links",
+    "items": [
+        {
+            "title": "Tribute on Wiki",
+            "slug": "https://pl.wikipedia.org/wiki/Rudolf_Modrzejewski"
+        },
+        {
+            "title": "Britannica",
+            "slug": "https://www.britannica.com/biography/Ralph-Modjeski"
+        }
+    ]
+}

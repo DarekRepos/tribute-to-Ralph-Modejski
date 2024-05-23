@@ -1,0 +1,15 @@
+---
+const { narrow } = Astro.props;
+---
+
+<div class="content__container">
+  <slot />
+</div>
+
+<style lang="scss">
+  .content__container {
+    margin: auto;
+    width: 1110px;
+    max-width: calc(100% - 3rem);
+  }
+</style>

@@ -1,0 +1,58 @@
+@use '../utils' as u;
+
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1100px,
+  xxl: 1400px,
+  full-hd: 1920px,
+);
+
+// Greater than or equal 
+@mixin media-up($breakpoint-min) {
+  $min: map.get($breakpoints, $breakpoint-min);
+
+  @if ($min >= 0) {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+// Less than or equal
+@mixin media-down($breakpoint-max) {
+  $max: map.get($breakpoints, $breakpoint-max) - 1px;
+
+  @if ($max >= 0) {
+    @media (max-width: $max) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+// Equal (>= x and <= y)
+@mixin media-only($breakpoint-min, $breakpoint-max) {
+  $min: map.get($breakpoints, $breakpoint-min);
+  $max: map.get($breakpoints, $breakpoint-max) - 1px;
+
+  @if ($min >= 0 AND $max >= $min) {
+    @media (min-width: $min) AND (max-width: $max) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}

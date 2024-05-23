@@ -1,0 +1,50 @@
+---
+import Container from "../../components/core/Container.astro";
+import Layout from "../../layouts/Page.astro";
+---
+
+<Layout>
+    <Container>
+        <section class="tribute-text">
+            <h2>About me and this website</h2>
+            <p>
+                This is the second version of my project, which I decided to
+                create as my own while learning HTML and CSS.
+            </p>
+            <p>It's a tribute page built with Astro.</p>
+            <p>
+                I chose Ralph Modjeski for this tribute page because I want to
+                highlight the story of this master engineer while also learning
+                new technology.
+            </p>
+        </section>
+    </Container>
+</Layout>
+
+<style lang="scss">
+    .tribute-text {
+        padding: 20px;
+        max-width: 600px;
+        margin: 20px auto;
+    }
+
+    .tribute-text h2 {
+        color: var(--c-title);
+        font-size: x-large;
+        margin-bottom: 10px;
+        text-align: center;
+        @media (min-width: 600px) {
+            font-size: xx-large;
+        }
+    }
+
+    .tribute-text p {
+        color: var(--c-text);
+        font-size: large;
+        line-height: 1.6;
+        text-align: justify;
+        @media (min-width: 600px) {
+            font-size: x-large;
+        }
+    }
+</style>

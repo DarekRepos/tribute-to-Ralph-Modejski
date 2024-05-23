@@ -1,0 +1,40 @@
+@use 'utils' as u;
+@use 'mixin' as r;
+
+
+
+:root {
+    --c-primary-moderate-violet: hsl(263, 55%, 52%);
+    --c-primary-very-dark-grayish-blue: hsl(0, 12%, 92%);;
+    --c-primary-very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --c-primary-white: hsl(0, 0%, 100%);
+
+    --c-neutral-light-gray: hsl(0, 0%, 81%);
+    --c-neutral-light-grayish-blue: hsl(210, 46%, 95%);
+
+    --c-info:#007bff;
+    --c-dark-info: #0056b3;
+    --c-title:#333;
+    --c-text:#666;
+
+    --f-l: #{clamp(u.rem(22), 1.2869718309859155rem + 0.3755868544600939vw, u.rem(36))};
+    --f-body: #{u.rem(14)};
+}
+
+body {
+    margin: 0 auto;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: var(--f-body);
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    color: var( --c-primary-very-dark-blackish-blue);
+    line-height: 1.6;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+a {
+    text-decoration: none;
+    transition: 150ms ease-in-out;
+    transition-property: color, background-color;
+}
