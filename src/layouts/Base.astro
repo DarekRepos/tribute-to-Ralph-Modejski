@@ -1,0 +1,43 @@
+---
+import BaseHead from "../components/head/BaseHead.astro";
+import type { Props as BaseHeadProps } from "../components/head/BaseHead.astro";
+
+export interface Props {
+    seo?: BaseHeadProps;
+}
+
+const { seo } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <BaseHead {...seo} />
+    </head>
+
+    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script
+            async
+            type="text/partytown"
+            src="https://www.googletagmanager.com/gtag/js?id=G-C5YKJ8XD7G"
+        >
+    </script>
+    <script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-C5YKJ8XD7G");
+    </script>
+    <body>
+        <slot name="announcement-bar" />
+        <slot name="header" />
+        <div id="content">
+            <slot />
+        </div>
+        <slot name="to-top-button"/>
+        <slot name="footer" />
+    </body>
+</html>

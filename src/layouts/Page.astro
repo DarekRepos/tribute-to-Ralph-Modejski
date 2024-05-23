@@ -1,0 +1,53 @@
+---
+import Layout from "./Base.astro";
+import Footer from "../components/core/Footer.astro";
+import Button from "../components/buttons/Button.astro";
+import Header from "../components/core/Header.astro";
+import Logo from "../components/Logo.astro";
+import type { Props as BaseHeadProps } from "../components/head/BaseHead.astro";
+import "../styles/style.scss";
+import ToTopButton from "../components/buttons/ToTopButton.astro";
+
+export interface Props {
+	seo?: BaseHeadProps;
+}
+
+const { seo } = Astro.props as Props;
+---
+
+<Layout seo={seo}>
+	<div class="page-container">
+		<div class="content-wrap">
+			<Header rightMenu slot="header">
+				<span slot="logo">
+					<Logo />
+				</span>
+				<Button
+					slot="action-item"
+					href="https://github.com/DarekRepos/tribute-to-Ralph-Modejski"
+					>Github</Button
+				>
+			</Header>
+			<main>
+				<div id="page">
+					<slot />
+				</div>
+			</main>
+			<ToTopButton slot="to-top-button" />
+		</div>
+		<Footer slot="footer">
+			<Logo slot="logo" />
+		</Footer>
+	</div>
+</Layout>
+
+<style lang="scss" is:global>
+	
+	.page-container {
+	}
+
+	.content-wrap {
+		min-height: 100vh;
+	}
+	
+</style>
