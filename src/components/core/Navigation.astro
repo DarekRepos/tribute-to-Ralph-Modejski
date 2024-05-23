@@ -1,0 +1,213 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+const navLinks = await getCollection("navlinks");
+---
+
+<script async src="/tribute-to-Ralph-Modejski/js/bodyScrollLock.js"></script>
+<script type="module">
+    function init() {
+            const btnOpen = document.querySelector("#btnOpen");
+            const btnClose = document.querySelector("#btnClose");
+            const media = window.matchMedia("(width < 40em)");
+            const topNavMenu = document.querySelector(".topnav__menu");
+            const main = document.querySelector("main");
+            const body = document.querySelector("body");
+
+            console.log(topNavMenu);
+            btnOpen.addEventListener("click", openMobileMenu);
+            btnClose.addEventListener("click", closeMobileMenu);
+
+            function setupTopNav(e) {
+                console.log(e.matches);
+                if (e.matches) {
+                    console.log("is mobile");
+                    topNavMenu.setAttribute("inert", "");
+                    topNavMenu.style.transition = "none";
+                } else {
+                    console.log("is desktop");
+                    closeMobileMenu();
+                    topNavMenu.removeAttribute("inert");
+                }
+            }
+            function openMobileMenu() {
+                btnOpen.setAttribute("aria-expanded", "true");
+                topNavMenu.setAttribute("aria-hidden", "false");
+                topNavMenu.removeAttribute("inert");
+                topNavMenu.removeAttribute("style");
+                main.setAttribute("inert", "");
+                bodyScrollLock.disableBodyScroll(body);
+                btnClose.focus();
+            }
+            function closeMobileMenu() {
+                console.log("close button are clicked");
+                btnOpen.setAttribute("aria-expanded", "false");
+                topNavMenu.setAttribute("aria-hidden", "true");
+                topNavMenu.setAttribute("inert", "");
+
+                main.removeAttribute("inert", "");
+                bodyScrollLock.enableBodyScroll(body);
+                btnOpen.focus();
+
+                setTimeout(() => {
+                    topNavMenu.style.transition = "none";
+                }, 500);
+            }
+            document.addEventListener("astro:page-load", () => {
+                // This only runs once.
+                setupTopNav(media);
+            });
+
+            media.addEventListener("change", function (e) {
+                setupTopNav(e);
+            });
+
+            // Clean up by destroying instances and removing event listeners
+        document.addEventListener(
+            "astro:before-swap",
+            () => {
+                // SomeClass.destroy()
+                document.removeEventListener("change");
+            },
+            { once: true },
+        );
+    }
+
+    // Initialize on first load
+    init();
+
+    // Re-initialize after swapping pages
+    document.addEventListener("astro:after-swap", init);
+</script>
+{
+    (
+        <>
+            <nav>
+                <span id="nav-label" hidden>
+                    Navigation
+                </span>
+                <button
+                    id="btnOpen"
+                    class="topnav__open"
+                    aria-expanded="false"
+                    aria-labelledby="nav-label"
+                >
+                    <Icon name="baseline-menu" width={24} height={24} />
+                </button>
+                <div
+                    class="topnav__menu"
+                    role="dialog"
+                    aria-labelledby="nav-label"
+                    aria-hidden="true"
+                >
+                    <button
+                        id="btnClose"
+                        class="topnav__close"
+                        aria-label="Close"
+                    >
+                        <Icon name="baseline-close" width={24} height={24} />
+                    </button>
+                    <ul class="topnav__links">
+                        {navLinks?.map((navItem) =>
+                            navItem.data.links.map((link) => (
+                                <li class="topnav_item">
+                                    <a
+                                        href={
+                                            import.meta.env.BASE_URL + link.slug
+                                        }
+                                        class="topnav__link"
+                                    >
+                                        {link.title}
+                                    </a>
+                                </li>
+                            )),
+                        )}
+                    </ul>
+                </div>
+            </nav>
+        </>
+    )
+}
+
+<style lang="scss">
+    .topnav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-block: 2rem 4rem;
+        font-size: var(--f-l);
+        &__links {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            margin: 0;
+            padding-inline-end: 0.75rem;
+            cursor: pointer;
+            text-align: center;
+            @media (width < 40em) {
+                flex-direction: column;
+                gap: 1.5rem;
+                font-size: x-large;
+                &:hover {
+                }
+            }
+        }
+
+        &__item {
+            list-style-type: none;
+        }
+
+        &__menu {
+            @media (width < 40em) {
+                position: fixed;
+                inset: 0;
+                padding: 1.5rem;
+                background-color: var(--c-neutral-light-gray);
+                translate: 100vw 0;
+                transition: translate 0.5s ease-in-out;
+                z-index: 100;
+            }
+            @media (width < 40em) and (prefers-reduced-motion) {
+                translate: 0;
+                opacity: 0;
+                transition: opacity 500ms ease-in-out;
+                z-index: 100;
+            }
+        }
+
+        button {
+            background: none;
+            border: none;
+            padding: 0%;
+        }
+        &__open {
+            display: flex;
+            @media (width >= 40em) {
+                display: none;
+            }
+        }
+        &__open[aria-expanded="true"] {
+            + .topnav__menu {
+                translate: 0;
+                @media (prefers-reduced-motion) {
+                    opacity: 1;
+                }
+            }
+        }
+        &__close {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-inline-start: auto;
+            svg {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            @media (width >= 40em) {
+                display: none;
+            }
+        }
+    }
+</style>
