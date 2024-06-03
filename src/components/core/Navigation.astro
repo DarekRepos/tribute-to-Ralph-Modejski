@@ -118,9 +118,7 @@ const pathname = new URL(Astro.request.url).pathname;
                                             import.meta.env.BASE_URL + link.slug
                                         }
                                         class={
-                                            import.meta.env.BASE_URL +
-                                                link.slug ===
-                                            pathname
+                                            link.slug === pathname
                                                 ? "topnav__link active"
                                                 : "topnav__link"
                                         }
@@ -157,7 +155,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
             :is(:focus, :hover) {
                 transform: translateY(-0.5rem);
-                background:var(--c-active);
+                background: var(--c-active);
                 overflow: hidden;
                 border-top: 2px solid var(--c-primary-moderate-violet);
                 padding-block: 0.5rem 0.5rem;
@@ -167,7 +165,7 @@ const pathname = new URL(Astro.request.url).pathname;
             }
 
             .active {
-                background:var(--c-active);
+                background: var(--c-active);
                 overflow: hidden;
                 border-top: 8px solid var(--c-primary-moderate-violet);
                 padding-block: 0.5rem 0.5rem;
