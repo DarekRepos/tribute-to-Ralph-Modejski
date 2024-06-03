@@ -118,13 +118,15 @@ const pathname = new URL(Astro.request.url).pathname;
                                             import.meta.env.BASE_URL + link.slug
                                         }
                                         class={
-                                            link.slug === pathname
+                                            import.meta.env.BASE_URL + link.slug === pathname
                                                 ? "topnav__link active"
                                                 : "topnav__link"
                                         }
                                     >
                                         {link.title}
                                     </a>
+                                    <div>{link.slug}</div>
+                                    <div>{pathname}</div>
                                 </li>
                             )),
                         )}
