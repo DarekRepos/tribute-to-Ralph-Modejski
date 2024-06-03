@@ -3,67 +3,68 @@ import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 const navLinks = await getCollection("navlinks");
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <script async src="/tribute-to-Ralph-Modejski/js/bodyScrollLock.js"></script>
 <script type="module">
     function init() {
-            const btnOpen = document.querySelector("#btnOpen");
-            const btnClose = document.querySelector("#btnClose");
-            const media = window.matchMedia("(width < 40em)");
-            const topNavMenu = document.querySelector(".topnav__menu");
-            const main = document.querySelector("main");
-            const body = document.querySelector("body");
+        const btnOpen = document.querySelector("#btnOpen");
+        const btnClose = document.querySelector("#btnClose");
+        const media = window.matchMedia("(width < 40em)");
+        const topNavMenu = document.querySelector(".topnav__menu");
+        const main = document.querySelector("main");
+        const body = document.querySelector("body");
 
-            console.log(topNavMenu);
-            btnOpen.addEventListener("click", openMobileMenu);
-            btnClose.addEventListener("click", closeMobileMenu);
+        console.log(topNavMenu);
+        btnOpen.addEventListener("click", openMobileMenu);
+        btnClose.addEventListener("click", closeMobileMenu);
 
-            function setupTopNav(e) {
-                console.log(e.matches);
-                if (e.matches) {
-                    console.log("is mobile");
-                    topNavMenu.setAttribute("inert", "");
-                    topNavMenu.style.transition = "none";
-                } else {
-                    console.log("is desktop");
-                    closeMobileMenu();
-                    topNavMenu.removeAttribute("inert");
-                }
-            }
-            function openMobileMenu() {
-                btnOpen.setAttribute("aria-expanded", "true");
-                topNavMenu.setAttribute("aria-hidden", "false");
-                topNavMenu.removeAttribute("inert");
-                topNavMenu.removeAttribute("style");
-                main.setAttribute("inert", "");
-                bodyScrollLock.disableBodyScroll(body);
-                btnClose.focus();
-            }
-            function closeMobileMenu() {
-                console.log("close button are clicked");
-                btnOpen.setAttribute("aria-expanded", "false");
-                topNavMenu.setAttribute("aria-hidden", "true");
+        function setupTopNav(e) {
+            console.log(e.matches);
+            if (e.matches) {
+                console.log("is mobile");
                 topNavMenu.setAttribute("inert", "");
-
-                main.removeAttribute("inert", "");
-                bodyScrollLock.enableBodyScroll(body);
-                btnOpen.focus();
-
-                setTimeout(() => {
-                    topNavMenu.style.transition = "none";
-                }, 500);
+                topNavMenu.style.transition = "none";
+            } else {
+                console.log("is desktop");
+                closeMobileMenu();
+                topNavMenu.removeAttribute("inert");
             }
-            document.addEventListener("astro:page-load", () => {
-                // This only runs once.
-                setupTopNav(media);
-            });
+        }
+        function openMobileMenu() {
+            btnOpen.setAttribute("aria-expanded", "true");
+            topNavMenu.setAttribute("aria-hidden", "false");
+            topNavMenu.removeAttribute("inert");
+            topNavMenu.removeAttribute("style");
+            main.setAttribute("inert", "");
+            bodyScrollLock.disableBodyScroll(body);
+            btnClose.focus();
+        }
+        function closeMobileMenu() {
+            console.log("close button are clicked");
+            btnOpen.setAttribute("aria-expanded", "false");
+            topNavMenu.setAttribute("aria-hidden", "true");
+            topNavMenu.setAttribute("inert", "");
 
-            media.addEventListener("change", function (e) {
-                setupTopNav(e);
-            });
+            main.removeAttribute("inert", "");
+            bodyScrollLock.enableBodyScroll(body);
+            btnOpen.focus();
 
-            // Clean up by destroying instances and removing event listeners
+            setTimeout(() => {
+                topNavMenu.style.transition = "none";
+            }, 500);
+        }
+        document.addEventListener("astro:page-load", () => {
+            // This only runs once.
+            setupTopNav(media);
+        });
+
+        media.addEventListener("change", function (e) {
+            setupTopNav(e);
+        });
+
+        // Clean up by destroying instances and removing event listeners
         document.addEventListener(
             "astro:before-swap",
             () => {
@@ -116,7 +117,13 @@ const navLinks = await getCollection("navlinks");
                                         href={
                                             import.meta.env.BASE_URL + link.slug
                                         }
-                                        class="topnav__link"
+                                        class={
+                                            import.meta.env.BASE_URL +
+                                                link.slug ===
+                                            pathname
+                                                ? "topnav__link active"
+                                                : "topnav__link"
+                                        }
                                     >
                                         {link.title}
                                     </a>
@@ -145,6 +152,27 @@ const navLinks = await getCollection("navlinks");
             padding-inline-end: 0.75rem;
             cursor: pointer;
             text-align: center;
+            transition: transform 750ms;
+            will-change: transform;
+
+            :is(:focus, :hover) {
+                transform: translateY(-0.5rem);
+                background:var(--c-active);
+                overflow: hidden;
+                border-top: 2px solid var(--c-primary-moderate-violet);
+                padding-block: 0.5rem 0.5rem;
+                @media (width < 40em) {
+                    border-top: 4px solid var(--c-primary-moderate-violet);
+                }
+            }
+
+            .active {
+                background:var(--c-active);
+                overflow: hidden;
+                border-top: 8px solid var(--c-primary-moderate-violet);
+                padding-block: 0.5rem 0.5rem;
+            }
+
             @media (width < 40em) {
                 flex-direction: column;
                 gap: 1.5rem;

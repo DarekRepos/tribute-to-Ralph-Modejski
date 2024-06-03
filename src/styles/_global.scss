@@ -16,6 +16,7 @@
     --c-dark-info: #0056b3;
     --c-title:#333;
     --c-text:#666;
+    --c-active: #dfe0e5;
 
     --f-l: #{clamp(u.rem(22), 1.2869718309859155rem + 0.3755868544600939vw, u.rem(36))};
     --f-body: #{u.rem(14)};
@@ -35,6 +36,6 @@ body {
 
 a {
     text-decoration: none;
-    transition: 150ms ease-in-out;
+    transition: 150ms ease;
     transition-property: color, background-color;
 }
