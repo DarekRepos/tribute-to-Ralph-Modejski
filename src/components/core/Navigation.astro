@@ -118,9 +118,12 @@ const pathname = new URL(Astro.request.url).pathname;
                                             import.meta.env.BASE_URL + link.slug
                                         }
                                         class={
-                                            import.meta.env.BASE_URL + link.slug + "/"=== pathname
-                                                ? "topnav__link active"
-                                                : "topnav__link"
+                                            import.meta.env.BASE_URL +
+                                                link.slug +
+                                                "/" ===
+                                            pathname
+                                                ? "active"
+                                                : ""
                                         }
                                     >
                                         {link.title}
@@ -147,13 +150,13 @@ const pathname = new URL(Astro.request.url).pathname;
             gap: 0.75rem;
             align-items: center;
             margin: 0;
-            padding-inline-end: 0.75rem;
+            padding-inline-end: 1rem;
             cursor: pointer;
             text-align: center;
             transition: transform 750ms;
             will-change: transform;
 
-            :is(:focus, :hover) {
+            a:is(:focus, :hover) {
                 transform: translateY(-0.5rem);
                 background: var(--c-active);
                 overflow: hidden;
@@ -168,7 +171,7 @@ const pathname = new URL(Astro.request.url).pathname;
                 background: var(--c-active);
                 overflow: hidden;
                 border-top: 8px solid var(--c-primary-moderate-violet);
-                padding-block: 0.5rem 0.5rem;
+                padding: 0.5rem 0.75rem;
             }
 
             @media (width < 40em) {
