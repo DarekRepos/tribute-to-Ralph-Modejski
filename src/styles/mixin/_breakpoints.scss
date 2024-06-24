@@ -3,12 +3,12 @@
 
 $breakpoints: (
   xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1100px,
-  xxl: 1400px,
-  full-hd: 1920px,
+  sm: 36em,       // 576px / 16 = 36em
+  md: 48em,       // 768px / 16 = 48em
+  lg: 62em,       // 992px / 16 = 62em
+  xl: 68.75em,    // 1100px / 16 = 68.75em
+  xxl: 87.5em,    // 1400px / 16 = 87.5em
+  full-hd: 120em, // 1920px / 16 = 120em
 );
 
 // Greater than or equal 
