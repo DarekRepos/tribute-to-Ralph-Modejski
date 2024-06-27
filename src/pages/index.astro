@@ -7,7 +7,7 @@ import { Image } from "astro:assets";
 <Layout>
 	<Container>
 		<article class="container">
-			<h1 id="title">Ralph Modejski</h1>
+			<h1 id="title" class="title">Ralph Modejski</h1>
 			<figure class="img-caption">
 				<Image
 					src={"/tribute-to-Ralph-Modejski/images/Ralph.modrzejewski.webp"}
@@ -16,7 +16,7 @@ import { Image } from "astro:assets";
 					height={257}
 					loading="eager"
 					format="webp"
-					class=""
+					class="portrait"
 				/>
 
 				<figcaption>
@@ -32,6 +32,12 @@ import { Image } from "astro:assets";
 	@use "../styles/utils" as u;
 	@use "../styles/mixin" as r;
 
+	.title{
+		color: var(--c-title);
+	}
+	.portrait{
+		border-radius: 0.5em;
+	}
 	.container {
 		display: flex;
 		justify-content: center;

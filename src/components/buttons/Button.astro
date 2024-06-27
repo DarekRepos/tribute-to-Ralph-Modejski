@@ -2,7 +2,7 @@
 const { href, unelevated, outlined, customIcon, onPrimary, newTab } =
   Astro.props;
 
-const Tag = href ? 'a' : 'button';
+const Tag = href ? "a" : "button";
 ---
 
 <Tag
@@ -10,29 +10,39 @@ const Tag = href ? 'a' : 'button';
     outlined && `btn--outlined`
   } ${onPrimary && `btn--on-primary`}`}
   href={href}
-  target={`${newTab ? '_blank': ``}`}
-  rel={`${newTab ? 'noopener noreferrer' : ``}`}
+  target={`${newTab ? "_blank" : ``}`}
+  rel={`${newTab ? "noopener noreferrer" : ``}`}
 >
   <slot />
-  {customIcon && <span class="custom-icon__span"><slot name="icon">custom_icon</slot></span>}
+  {
+    customIcon && (
+      <span class="custom-icon__span">
+        <slot name="icon">custom_icon</slot>
+      </span>
+    )
+  }
 </Tag>
 
 <style lang="scss">
+  $stone-700: rgb(68, 64, 60);
+  $stone-500: rgb(120, 113, 108);
   .btn {
-    width: fit-content;
-    padding: 1em 0.75em ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--c-primary-very-dark-blackish-blue);
-    border: 1px solid var(--c-primary-very-dark-blackish-blue);
-    border-radius: 0.3em;
+    background-color: transparent;
+    color: $stone-700;
+    font-weight: bold; /* equivalent to font-semibold */
+    padding: 0.5em 1em; /* 0.5 times the font size of the parent element for padding */
+    border: 0.1em solid $stone-500; /* 0.1 times the font size of the parent element for border width */
+    border-radius: 0.5em; /* 0.5 times the font size of the parent element for border radius */
+    cursor: pointer; /* Assuming you want hover effect */
     text-transform: uppercase;
-    font-weight: 500;
+
+    &:hover {
+      background-color: $stone-500;
+      color: white;
+      border-color: transparent;
+    }
   }
-  .btn:hover {
-    background-color: var(--theme-primary-hover);
-  }
+
   .btn--unelevated {
     background-color: transparent;
     color: var(--theme-on-bg);
