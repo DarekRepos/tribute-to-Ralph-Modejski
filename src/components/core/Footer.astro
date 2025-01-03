@@ -47,8 +47,19 @@ const footerLink = await getCollection("footerlinks");
                                     <li>
                                         <a
                                             href={
-                                                import.meta.env.BASE_URL +
-                                                item.slug
+                                                item.slug.startsWith("http") // Check if it's an absolute URL
+                                                    ? item.slug
+                                                    : `${import.meta.env.BASE_URL || ""}${item.slug}`
+                                            }
+                                            target={
+                                                item.slug.startsWith("http")
+                                                    ? "_blank"
+                                                    : "_self"
+                                            }
+                                            rel={
+                                                item.slug.startsWith("http")
+                                                    ? "noopener noreferrer"
+                                                    : undefined
                                             }
                                         >
                                             {item.title}
@@ -71,12 +82,12 @@ const footerLink = await getCollection("footerlinks");
     footer {
         --footer-bg: var(--theme-primary);
         --footer-color: var(--theme-on-primary);
-        
+
         background-color: var(--c-active);
         color: var(--footer-color);
         border-top-left-radius: var(--theme-shape-radius);
         border-top-right-radius: var(--theme-shape-radius);
-        
+
         width: 100%;
     }
 
@@ -120,16 +131,16 @@ const footerLink = await getCollection("footerlinks");
         font-size: var(--font-size-sm);
     }
 
-    .footer-socials__link{
-        color:black;
+    .footer-socials__link {
+        color: black;
     }
-    
+
     @media (max-width: 768px) {
         .footer-grid__container :first-child {
             grid-column: 1/-1;
         }
         .footer-grid__container {
-            padding:0;
+            padding: 0;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
         }
