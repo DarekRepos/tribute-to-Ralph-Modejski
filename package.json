@@ -11,7 +11,7 @@
     "lint:scss": "stylelint \"**/*.scss\""
   },
   "dependencies": {
-    "astro": "^4.16.18",
+    "astro": "^5.1.2",
     "astro-icon": "^1.1.0",
     "body-scroll-lock": "^4.0.0-beta.0"
   },
