@@ -1,0 +1,203 @@
+---
+export const LANG_STORAGE_KEY = "preferred-lang";
+
+export const LANGUAGES = [
+  { code: "en", label: "English" },
+  { code: "pl", label: "Polski" },
+  { code: "es", label: "Español" },
+  { code: "de", label: "Deutsch" },
+] as const;
+
+export type LangCode = (typeof LANGUAGES)[number]["code"];
+---
+
+<div class="language-selector" data-lang-selector>
+  <button
+    type="button"
+    class="language-selector__trigger"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-label="Select language"
+    data-lang-trigger
+  >
+    <span class="language-selector__current" data-lang-label>English</span>
+    <span class="language-selector__chevron" aria-hidden="true">▼</span>
+  </button>
+  <ul
+    class="language-selector__dropdown"
+    role="listbox"
+    aria-label="Language options"
+    data-lang-listbox
+    hidden
+  >
+    {LANGUAGES.map(function (lang) {
+      return (
+        <li key={lang.code} role="option" data-lang-code={lang.code}>
+          <button type="button" class="language-selector__option">
+            {lang.label}
+          </button>
+        </li>
+      );
+    })}
+  </ul>
+</div>
+
+<script define:vars={{ LANG_STORAGE_KEY, LANGUAGES }}>
+  const selector = document.querySelector("[data-lang-selector]");
+  const trigger = selector?.querySelector("[data-lang-trigger]");
+  const listbox = selector?.querySelector("[data-lang-listbox]");
+  const labelEl = selector?.querySelector("[data-lang-label]");
+
+  const langMap = Object.fromEntries(LANGUAGES.map((l) => [l.code, l.label]));
+
+  function getStoredLang() {
+    try {
+      const stored = localStorage.getItem(LANG_STORAGE_KEY);
+      if (stored && langMap[stored]) return stored;
+    } catch (_) {}
+    return "en";
+  }
+
+  function setStoredLang(code) {
+    try {
+      localStorage.setItem(LANG_STORAGE_KEY, code);
+    } catch (_) {}
+  }
+
+  function applyLang(code) {
+    document.documentElement.lang = code;
+    document.documentElement.setAttribute("data-lang", code);
+    if (labelEl) labelEl.textContent = langMap[code] ?? "English";
+    setStoredLang(code);
+    window.dispatchEvent(new CustomEvent("languagechange", { detail: { lang: code } }));
+  }
+
+  function open() {
+    trigger?.setAttribute("aria-expanded", "true");
+    listbox?.removeAttribute("hidden");
+    selector?.classList.add("language-selector--open");
+  }
+
+  function close() {
+    trigger?.setAttribute("aria-expanded", "false");
+    listbox?.setAttribute("hidden", "");
+    selector?.classList.remove("language-selector--open");
+  }
+
+  function toggleDropdown() {
+    const isClosed = listbox?.hasAttribute("hidden");
+    if (isClosed) open();
+    else close();
+  }
+
+  trigger?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleDropdown();
+  });
+
+  listbox?.querySelectorAll("[data-lang-code]").forEach((li) => {
+    const btn = li.querySelector("button");
+    const code = li.getAttribute("data-lang-code");
+    btn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (code) applyLang(code);
+      close();
+    });
+  });
+
+  document.addEventListener("click", () => close());
+
+  document.addEventListener("astro:page-load", () => {
+    const code = getStoredLang();
+    applyLang(code);
+  });
+
+  const initial = getStoredLang();
+  applyLang(initial);
+</script>
+
+<style lang="scss">
+  .language-selector {
+    position: relative;
+    --ls-bg: var(--c-primary-background);
+    --ls-border: rgb(120, 113, 108);
+    --ls-text: var(--c-primary-text, #333);
+    --ls-hover-bg: rgb(120, 113, 108);
+    --ls-hover-text: #fff;
+  }
+
+  .language-selector__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5em 0.75em;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--ls-text);
+    background: transparent;
+    border: 0.1em solid var(--ls-border);
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+
+  .language-selector__trigger:hover {
+    background-color: var(--ls-hover-bg);
+    color: var(--ls-hover-text);
+    border-color: transparent;
+  }
+
+  .language-selector__trigger[aria-expanded="true"] {
+    background-color: var(--ls-hover-bg);
+    color: var(--ls-hover-text);
+    border-color: transparent;
+  }
+
+  .language-selector__chevron {
+    font-size: 0.65em;
+    opacity: 0.9;
+    transition: transform 0.2s ease;
+  }
+
+  .language-selector--open .language-selector__chevron {
+    transform: rotate(180deg);
+  }
+
+  .language-selector__dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin: 0.25rem 0 0;
+    padding: 0.25rem 0;
+    min-width: 100%;
+    list-style: none;
+    background: var(--ls-bg);
+    border: 0.1em solid var(--ls-border);
+    border-radius: 0.5em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+  }
+
+  .language-selector__option {
+    display: block;
+    width: 100%;
+    padding: 0.5em 0.75em;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-size: inherit;
+    font-weight: 500;
+    text-align: left;
+    color: var(--ls-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  .language-selector__option:hover,
+  .language-selector__option:focus {
+    background-color: var(--ls-hover-bg);
+    color: var(--ls-hover-text);
+  }
+</style>
