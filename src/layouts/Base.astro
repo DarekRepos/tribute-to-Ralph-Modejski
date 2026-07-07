@@ -1,10 +1,8 @@
 ---
 import BaseHead from "../components/head/BaseHead.astro";
-import type { Props as BaseHeadProps } from "../components/head/BaseHead.astro";
+import BaseHeadProps from "../components/head/BaseHead.astro";
+import { ClientRouter } from "astro:transitions";
 
-export interface Props {
-    seo?: BaseHeadProps;
-}
 
 const { seo } = Astro.props;
 ---
@@ -12,6 +10,7 @@ const { seo } = Astro.props;
 <html lang="en">
     <head>
         <BaseHead {...seo} />
+       <ClientRouter />
     </head>
 
     <!-- Google Analytics -->
