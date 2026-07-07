@@ -1,16 +1,18 @@
 ---
 
 import { getEntry } from "astro:content";
-import { ViewTransitions } from "astro:transitions";
 import "../../styles/style.scss";
 
 const metaInfo = await getEntry( 'metaheadinfo', 'metainfo');
 
+if (!metaInfo) {
+  throw new Error("Critical Error: 'metainfo' entry not found in 'metaheadinfo' collection.");
+}
 ---
 <!-- Global Metadata -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<ViewTransitions />
+
 <link rel="apple-touch-icon" sizes="57x57" href="/tribute-to-Ralph-Modejski/apple-icon-57x57.png" />
 <link rel="apple-touch-icon" sizes="60x60" href="/tribute-to-Ralph-Modejski/apple-icon-60x60.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="/tribute-to-Ralph-Modejski/apple-icon-72x72.png" />
@@ -50,5 +52,3 @@ const metaInfo = await getEntry( 'metaheadinfo', 'metainfo');
 <meta property="twitter:title" content={metaInfo.data.title} />
 <meta property="twitter:description" content={metaInfo.data.description} />
 <meta property="twitter:image" content={metaInfo.data.imageUrl} />
-
-<ViewTransitions />
