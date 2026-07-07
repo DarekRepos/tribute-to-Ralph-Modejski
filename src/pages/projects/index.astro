@@ -10,7 +10,7 @@ const projects = await getCollection("projects");
 <Layout>
   <Container>
     <div class="container">
-      <h2 class="heading-text">Notable <span>projects</span></h2>
+      <h2 class="heading-text"><span data-i18n="projects.title">Notable</span> <span data-i18n="projects.titleSpan">projects</span></h2>
       <ul class="image-gallery">
         {
           projects.map((item) => (
@@ -33,6 +33,10 @@ const projects = await getCollection("projects");
       </ul>
     </div>
   </Container>
+  <script>
+    import { initTranslations } from "../../utils/i18n-client";
+    initTranslations();
+  </script>
 </Layout>
 
 <style lang="scss">

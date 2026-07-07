@@ -1,14 +1,29 @@
 ---
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
+import { getTranslations } from "../../i18n";
 
 const navLinks = await getCollection("navlinks");
 const pathname = new URL(Astro.request.url).pathname;
+const translations = getTranslations('en');
+const navTranslationMap: Record<string, string> = {
+  "Tribute": "nav.tribute",
+  "Live": "nav.live",
+  "Did You Know?": "nav.didYouKnow",
+  "Notable Projects": "nav.projects",
+  "About me": "nav.about",
+  "Contact": "nav.contact"
+};
 ---
 
 <script async src="/tribute-to-Ralph-Modejski/js/bodyScrollLock.js"></script>
 <script type="module">
+    import { initTranslations } from "../../utils/i18n-client";
+    
     function init() {
+        // Initialize translations first
+        initTranslations();
+        
         const btnOpen = document.querySelector("#btnOpen");
         const btnClose = document.querySelector("#btnClose");
         const media = window.matchMedia("(width < 40em)");
@@ -117,6 +132,7 @@ const pathname = new URL(Astro.request.url).pathname;
                                         href={
                                             import.meta.env.BASE_URL + link.slug
                                         }
+                                        data-i18n={navTranslationMap[link.title] || link.title}
                                         class={
                                             link.slug === "/"
                                                 ? import.meta.env.BASE_URL ===

@@ -1,0 +1,234 @@
+{
+  "en": {
+    "nav": {
+      "tribute": "Tribute",
+      "live": "Live",
+      "didYouKnow": "Did You Know?",
+      "projects": "Notable Projects",
+      "about": "About me",
+      "contact": "Contact"
+    },
+    "home": {
+      "title": "Ralph Modejski",
+      "caption": "Civil engineer Ralph Modjeski (Rudolf Modrzejewski) in 1931.",
+      "imageAlt": "Rudolf Modrzejewski w 1931 roku"
+    },
+    "about": {
+      "title": "About me and this website",
+      "p1": "This is the second version of my project, which I decided to create as my own while learning HTML and CSS.",
+      "p2": "It's a tribute page built with Astro.",
+      "p3": "I chose Ralph Modjeski for this tribute page because I want to highlight the story of this master engineer while also learning new technology."
+    },
+    "footer": {
+      "resources": "Resources",
+      "followUs": "Follow Us"
+    },
+    "notFound": {
+      "title": "404",
+      "heading": "Page Not Found 👀",
+      "returnHome": "Return Home"
+    },
+    "live": {
+      "title": "Live",
+      "p1": "He was <strong>born in Bochnia</strong>, then in Galicia, on January 27, 1861, to Gustav Sinnmayer Modrzejewski and actress Helena Opid Modrzejewska (best known outside Poland as Helena Modjeska).",
+      "p2": "He was a <strong>classmate of Ignacy Jan Paderewski in Poland</strong> and was a formidable pianist in his own right.",
+      "p3": "The son returned to Europe to study at l'Ecole des Ponts et Chaussées (<strong>the School of Bridges and Roads</strong>) in Paris, France. It was in 1883, while studying at Paris, that he obtained American citizenship. However, he always maintained contact with Poland, wrote much in Polish, and emphasized his Polish origins.",
+      "p4": "In 1885 he <strong>graduated from the School of Bridges and Roads at the top of his class</strong>. The same year, he married Felicie Benda; the couple had three children. He would later marry Virginia Mary Giblyn.",
+      "p5": "Modjeski returned to America to begin his career, <strong>working first under the \"father of American bridge-building,\"</strong> George S. Morison. In 1893, in Chicago, Modjeski <strong>opened his own design office, which still exists as \"Modjeski & Masters,\"</strong> after it was joined in 1924 by Frank M. Masters.",
+      "p6": "Modjeski's <strong>first project as chief engineer was the railroad bridge across the Mississippi River at Rock Island, Illinois</strong>. During his career, he served as chief or consulting engineer on dozens of bridges around the country.",
+      "p7": "He took over the mis-designed Quebec Bridge after the 1907 disaster that killed 75 workers, and <strong>succeeded in creating the longest truss span in the world</strong> (though a construction accident killed another thirteen workers). It is still the longest cantilever bridge in the world.",
+      "p8": "He died June 26, 1940, in Los Angeles, California."
+    },
+    "projects": {
+      "title": "Notable",
+      "titleSpan": "projects"
+    },
+    "contact": {
+      "title": "Contact Me",
+      "description": "If you have any questions or need further information, feel free to reach out to me via email.",
+      "emailLink": "Email Me"
+    },
+    "sideNotes": {
+      "title": "Did You Know?",
+      "intro": "Modjeski was considered",
+      "quote": "America's greatest bridge builder.",
+      "year": "in 1903.",
+      "p1": "He built nearly <strong>40 bridges</strong> spanning the great rivers of North America.",
+      "p2": "He <strong>trained</strong> succeeding <strong>generations of American bridge designers and builders</strong>, including Joseph B. Strauss, chief engineer of San Francisco's Golden Gate Bridge."
+    }
+  },
+  "pl": {
+    "nav": {
+      "tribute": "Podziękowanie",
+      "live": "Życiorys",
+      "didYouKnow": "Czy wiesz?",
+      "projects": "Godne uwagi projekty",
+      "about": "O mnie",
+      "contact": "Kontakt"
+    },
+    "home": {
+      "title": "Ralph Modejski",
+      "caption": "Inżynier budownictwa Ralph Modjeski (Rudolf Modrzejewski) w 1931 roku.",
+      "imageAlt": "Rudolf Modrzejewski w 1931 roku"
+    },
+    "about": {
+      "title": "O mnie i tej stronie internetowej",
+      "p1": "To druga wersja mojego projektu, którą postanowiłem stworzyć samodzielnie, ucząc się HTML-a i CSS-a.",
+      "p2": "Jest to strona podziękowania stworzona w Astro.",
+      "p3": "Wybrałem Ralph'a Modjskiego na tę stronę podziękowania, ponieważ chcę podkreślić historię tego mistrza inżynierii, ucząc się jednocześnie nowych technologii."
+    },
+    "footer": {
+      "resources": "Zasoby",
+      "followUs": "Obserwuj nas"
+    },
+    "notFound": {
+      "title": "404",
+      "heading": "Strona nie znaleziona 👀",
+      "returnHome": "Powrót na stronę główną"
+    },
+    "live": {
+      "title": "Życiorys",
+      "p1": "Urodził się <strong>w Bochni</strong>, wówczas w Galicji, 27 stycznia 1861 roku, jako syn Gustawa Sinnmayera Modrzejewskiego i aktorki Heleny Opid Modrzejewskiej (poza Polską znana jako Helena Modjeska).",
+      "p2": "Był <strong>kolegą z klasy Ignacego Jana Paderewskiego w Polsce</strong> i był również doskonałym pianistą.",
+      "p3": "Syn powrócił do Europy, aby studiować w l'Ecole des Ponts et Chaussées (<strong>Szkole Mostów i Dróg</strong>) w Paryżu, Francja. To właśnie w 1883 roku, podczas studiów w Paryżu, uzyskał obywatelstwo amerykańskie. Jednak zawsze utrzymywał kontakt z Polską, pisał wiele po polsku i podkreślał swoje polskie pochodzenie.",
+      "p4": "<strong>W 1885 roku ukończył Szkołę Mostów i Dróg na czele swojej klasy</strong>. Tego samego roku poślubił Felicję Bendę; para miała troje dzieci. Później poślubił Virginię Mary Giblyn.",
+      "p5": "Modjeski powrócił do Ameryki, aby rozpocząć swoją karierę, <strong>pracując najpierw pod kierunkiem \"ojca amerykańskiego budownictwa mostów\"</strong> George'a S. Morisona. W 1893 roku, w Chicago, Modjeski <strong>otworzył własne biuro projektowe, które nadal istnieje jako \"Modjeski & Masters\"</strong>, po tym jak dołączył do niego Frank M. Masters w 1924 roku.",
+      "p6": "<strong>Pierwszym projektem Modjskiego jako głównego inżyniera był most kolejowy przez Missisipi w Rock Island, Illinois</strong>. Podczas swojej kariery pełnił funkcję głównego lub konsultanta inżyniera na dziesiątkach mostów w całym kraju.",
+      "p7": "Przejął źle zaprojektowany most w Quebecu po katastrofie z 1907 roku, w której zginęło 75 pracowników, i <strong>zdołał stworzyć największy przęsło kratownicowe na świecie</strong> (chociaż wypadek budowlany zabił kolejnych trzynastu pracowników). Jest to wciąż najdłuższy most konsolowy na świecie.",
+      "p8": "Zmarł 26 czerwca 1940 roku w Los Angeles w Kalifornii."
+    },
+    "projects": {
+      "title": "Godne uwagi",
+      "titleSpan": "projekty"
+    },
+    "contact": {
+      "title": "Skontaktuj się ze mną",
+      "description": "Jeśli masz jakieś pytania lub potrzebujesz dodatkowych informacji, śmiało się do mnie zwróć poprzez email.",
+      "emailLink": "Wyślij mi email"
+    },
+    "sideNotes": {
+      "title": "Czy wiesz?",
+      "intro": "Modjski był uważany za",
+      "quote": "największego budowniczego mostów w Ameryce.",
+      "year": "w 1903 roku.",
+      "p1": "Zbudował prawie <strong>40 mostów</strong> przechodzących przez wielkie rzeki Ameryki Północnej.",
+      "p2": "<strong>Szkolił</strong> kolejne <strong>pokolenia amerykańskich projektantów i budowniczych mostów</strong>, w tym Joseph'a B. Straussa, głównego inżyniera mostu Golden Gate w San Francisco."
+    }
+  },
+  "es": {
+    "nav": {
+      "tribute": "Tributo",
+      "live": "En vivo",
+      "didYouKnow": "¿Sabías que?",
+      "projects": "Proyectos notables",
+      "about": "Acerca de mí",
+      "contact": "Contacto"
+    },
+    "home": {
+      "title": "Ralph Modejski",
+      "caption": "Ingeniero civil Ralph Modjeski (Rudolf Modrzejewski) en 1931.",
+      "imageAlt": "Rudolf Modrzejewski w 1931 roku"
+    },
+    "about": {
+      "title": "Acerca de mí y este sitio web",
+      "p1": "Esta es la segunda versión de mi proyecto, que decidí crear por mi cuenta mientras aprendía HTML y CSS.",
+      "p2": "Es una página de tributo construida con Astro.",
+      "p3": "Elegí a Ralph Modjeski para esta página de tributo porque quiero destacar la historia de este ingeniero maestro mientras aprendo nuevas tecnologías."
+    },
+    "footer": {
+      "resources": "Recursos",
+      "followUs": "Síguenos"
+    },
+    "notFound": {
+      "title": "404",
+      "heading": "Página no encontrada 👀",
+      "returnHome": "Volver a inicio"
+    },
+    "live": {
+      "title": "En vivo",
+      "p1": "Nació en <strong>Bochnia</strong>, entonces en Galicia, el 27 de enero de 1861, hijo de Gustav Sinnmayer Modrzejewski y la actriz Helena Opid Modrzejewska (conocida fuera de Polonia como Helena Modjeska).",
+      "p2": "Fue <strong>compañero de clase de Ignacy Jan Paderewski en Polonia</strong> y fue un excelente pianista por derecho propio.",
+      "p3": "El hijo regresó a Europa para estudiar en l'Ecole des Ponts et Chaussées (<strong>la Escuela de Puentes y Carreteras</strong>) en París, Francia. Fue en 1883, mientras estudiaba en París, que obtuvo la ciudadanía estadounidense. Sin embargo, siempre mantuvo contacto con Polonia, escribió mucho en polaco y enfatizó sus orígenes polacos.",
+      "p4": "En 1885 <strong>se graduó de la Escuela de Puentes y Carreteras en el primer lugar de su clase</strong>. Ese mismo año, se casó con Felicia Benda; la pareja tuvo tres hijos. Más tarde se casaría con Virginia Mary Giblyn.",
+      "p5": "Modjeski regresó a América para comenzar su carrera, <strong>trabajando primero bajo el \"padre de la construcción de puentes estadounidenses\",</strong> George S. Morison. En 1893, en Chicago, Modjeski <strong>abrió su propia oficina de diseño, que aún existe como \"Modjeski & Masters\",</strong> después de ser unida en 1924 por Frank M. Masters.",
+      "p6": "<strong>El primer proyecto de Modjeski como ingeniero jefe fue el puente ferroviario a través del río Misisipí en Rock Island, Illinois</strong>. Durante su carrera, se desempeñó como ingeniero jefe o consultor en docenas de puentes en todo el país.",
+      "p7": "Se hizo cargo del puente de Quebec mal diseñado después del desastre de 1907 que mató a 75 trabajadores, y <strong>logró crear el tramo de armadura más largo del mundo</strong> (aunque un accidente de construcción mató a otros trece trabajadores). Sigue siendo el puente voladizo más largo del mundo.",
+      "p8": "Murió el 26 de junio de 1940 en Los Ángeles, California."
+    },
+    "projects": {
+      "title": "Proyectos",
+      "titleSpan": "notables"
+    },
+    "contact": {
+      "title": "Contáctame",
+      "description": "Si tienes alguna pregunta o necesitas más información, no dudes en contactarme por correo electrónico.",
+      "emailLink": "Envíame un correo"
+    },
+    "sideNotes": {
+      "title": "¿Sabías que?",
+      "intro": "Modjeski fue considerado",
+      "quote": "el mayor constructor de puentes de América.",
+      "year": "en 1903.",
+      "p1": "Construyó casi <strong>40 puentes</strong> que atraviesan los grandes ríos de América del Norte.",
+      "p2": "<strong>Capacitó</strong> a las sucesivas <strong>generaciones de diseñadores y constructores de puentes estadounidenses</strong>, incluido Joseph B. Strauss, ingeniero jefe del Puente Golden Gate de San Francisco."
+    }
+  },
+  "de": {
+    "nav": {
+      "tribute": "Hommage",
+      "live": "Live",
+      "didYouKnow": "Wusstest du?",
+      "projects": "Bemerkenswerte Projekte",
+      "about": "Über mich",
+      "contact": "Kontakt"
+    },
+    "home": {
+      "title": "Ralph Modejski",
+      "caption": "Bauingenieur Ralph Modjeski (Rudolf Modrzejewski) im Jahr 1931.",
+      "imageAlt": "Rudolf Modrzejewski w 1931 roku"
+    },
+    "about": {
+      "title": "Über mich und diese Website",
+      "p1": "Dies ist die zweite Version meines Projekts, das ich mir selbst ausgedacht habe, während ich HTML und CSS lerne.",
+      "p2": "Es ist eine mit Astro erstellte Tribut-Seite.",
+      "p3": "Ich habe Ralph Modjeski für diese Tribut-Seite ausgewählt, weil ich die Geschichte dieses Masterbauingenieurs hervorheben und gleichzeitig neue Technologien erlernen möchte."
+    },
+    "footer": {
+      "resources": "Ressourcen",
+      "followUs": "Folgen Sie uns"
+    },
+    "notFound": {
+      "title": "404",
+      "heading": "Seite nicht gefunden 👀",
+      "returnHome": "Zur Startseite"
+    },
+    "live": {
+      "title": "Live",
+      "p1": "Er wurde <strong>in Bochnia</strong> geboren, damals in Galizien, am 27. Januar 1861, Sohn von Gustav Sinnmayer Modrzejewski und der Schauspielerin Helena Opid Modrzejewska (außerhalb Polens als Helena Modjeska bekannt).",
+      "p2": "Er war <strong>Klassenkamerad von Ignacy Jan Paderewski in Polen</strong> und war selbst ein formidabler Pianist.",
+      "p3": "Der Sohn kehrte nach Europa zurück, um an der l'Ecole des Ponts et Chaussées (<strong>der Schule für Brücken und Straßen</strong>) in Paris, Frankreich, zu studieren. 1883, während des Studiums in Paris, erwarb er die amerikanische Staatsbürgerschaft. Er blieb jedoch immer in Kontakt mit Polen, schrieb viel auf Polnisch und betonte seine polnischen Ursprünge.",
+      "p4": "1885 <strong>graduierte er von der Schule für Brücken und Straßen an der Spitze seiner Klasse</strong>. Im selben Jahr heiratete er Felicia Benda; das Paar bekam drei Kinder. Später würde er Virginia Mary Giblyn heiraten.",
+      "p5": "Modjeski kehrte nach Amerika zurück, um seine Karriere zu beginnen, <strong>zunächst unter dem \"Vater des amerikanischen Brückenbaus\"</strong> George S. Morison. 1893 eröffnete Modjeski in Chicago <strong>sein eigenes Designbüro, das noch immer als \"Modjeski & Masters\"</strong> existiert, nachdem es 1924 von Frank M. Masters beigetreten wurde.",
+      "p6": "<strong>Modjeskis erstes Projekt als Chefingenieur war die Eisenbahnbrücke über den Mississippi River bei Rock Island, Illinois</strong>. Während seiner Karriere war er Chefingenieur oder Berater bei Dutzenden von Brücken im ganzen Land.",
+      "p7": "Er übernahm die schlecht konstruierte Québec-Brücke nach der Katastrophe von 1907, bei der 75 Arbeiter ums Leben kamen, und <strong>schaffte es, die längste Fachwerkspannweite der Welt zu schaffen</strong> (obwohl ein Bauunfall dreizehn weitere Arbeiter tötete). Es ist immer noch die längste Auslegerbrücke der Welt.",
+      "p8": "Er starb am 26. Juni 1940 in Los Angeles, Kalifornien."
+    },
+    "projects": {
+      "title": "Bemerkenswerte",
+      "titleSpan": "Projekte"
+    },
+    "contact": {
+      "title": "Kontaktieren Sie mich",
+      "description": "Wenn Sie Fragen haben oder weitere Informationen benötigen, können Sie mich gerne per E-Mail kontaktieren.",
+      "emailLink": "E-Mail senden"
+    },
+    "sideNotes": {
+      "title": "Wusstest du?",
+      "intro": "Modjeski wurde als",
+      "quote": "Amerikas größter Brückenbauer angesehen.",
+      "year": "im Jahr 1903.",
+      "p1": "Er baute fast <strong>40 Brücken</strong>, die die großen Flüsse Nordamerikas überqueren.",
+      "p2": "Er <strong>schulte</strong> aufeinanderfolgende <strong>Generationen von amerikanischen Brückenkonstrukteuren und Ingenieuren</strong>, einschließlich Joseph B. Strauss, Chefingenieur der Golden Gate Bridge in San Francisco."
+    }
+  }
+}

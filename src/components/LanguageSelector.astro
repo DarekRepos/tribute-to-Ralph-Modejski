@@ -1,119 +1,117 @@
 ---
-export const LANG_STORAGE_KEY = "preferred-lang";
-
-export const LANGUAGES = [
+// We keep this here ONLY to render the initial HTML list
+const LANGUAGES = [
   { code: "en", label: "English" },
   { code: "pl", label: "Polski" },
   { code: "es", label: "Español" },
   { code: "de", label: "Deutsch" },
-] as const;
-
-export type LangCode = (typeof LANGUAGES)[number]["code"];
+];
 ---
 
 <div class="language-selector" data-lang-selector>
-  <button
-    type="button"
-    class="language-selector__trigger"
-    aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-label="Select language"
+  <button 
+    type="button" 
+    class="language-selector__trigger" 
+    aria-expanded="false" 
     data-lang-trigger
   >
     <span class="language-selector__current" data-lang-label>English</span>
-    <span class="language-selector__chevron" aria-hidden="true">▼</span>
+    <span class="language-selector__chevron">▼</span>
   </button>
-  <ul
-    class="language-selector__dropdown"
-    role="listbox"
-    aria-label="Language options"
-    data-lang-listbox
-    hidden
-  >
-    {LANGUAGES.map(function (lang) {
-      return (
-        <li key={lang.code} role="option" data-lang-code={lang.code}>
-          <button type="button" class="language-selector__option">
-            {lang.label}
-          </button>
-        </li>
-      );
-    })}
+  
+  <ul class="language-selector__dropdown" data-lang-listbox hidden>
+    {LANGUAGES.map((lang) => (
+      <li data-lang-code={lang.code}>
+        <button type="button" class="language-selector__option">
+          {lang.label}
+        </button>
+      </li>
+    ))}
   </ul>
 </div>
 
-<script define:vars={{ LANG_STORAGE_KEY, LANGUAGES }}>
-  const selector = document.querySelector("[data-lang-selector]");
-  const trigger = selector?.querySelector("[data-lang-trigger]");
-  const listbox = selector?.querySelector("[data-lang-listbox]");
-  const labelEl = selector?.querySelector("[data-lang-label]");
+<script>
+  // Configuration constants defined directly in the client script
+  const LANG_STORAGE_KEY = "preferred-lang";
+  
+  function initLanguageSelector() {
+    // Scoped selectors
+    const selector = document.querySelector("[data-lang-selector]");
+    const trigger = selector?.querySelector("[data-lang-trigger]");
+    const listbox = selector?.querySelector("[data-lang-listbox]");
+    const labelEl = selector?.querySelector("[data-lang-label]");
+    const options = selector?.querySelectorAll("[data-lang-code]");
 
-  const langMap = Object.fromEntries(LANGUAGES.map((l) => [l.code, l.label]));
+    // Helper to get label from the DOM instead of passing objects from Astro
+    function getLabelForCode(code) {
+      const item = selector?.querySelector(`[data-lang-code="${code}"]`);
+      return item?.textContent?.trim() || "English";
+    }
 
-  function getStoredLang() {
-    try {
-      const stored = localStorage.getItem(LANG_STORAGE_KEY);
-      if (stored && langMap[stored]) return stored;
-    } catch (_) {}
-    return "en";
-  }
+    function applyLang(code: string | null) {
+      const langCode = code || "en"; // Fallback to 'en' string
+      
+      document.documentElement.lang = langCode;
+      document.documentElement.setAttribute("data-lang", langCode);
+      
+      if (labelEl) labelEl.textContent = getLabelForCode(langCode);
+      
+      localStorage.setItem(LANG_STORAGE_KEY, langCode);
+      
+      window.dispatchEvent(new CustomEvent("languagechange", { detail: { lang: langCode } }));
+    }
 
-  function setStoredLang(code) {
-    try {
-      localStorage.setItem(LANG_STORAGE_KEY, code);
-    } catch (_) {}
-  }
-
-  function applyLang(code) {
-    document.documentElement.lang = code;
-    document.documentElement.setAttribute("data-lang", code);
-    if (labelEl) labelEl.textContent = langMap[code] ?? "English";
-    setStoredLang(code);
-    window.dispatchEvent(new CustomEvent("languagechange", { detail: { lang: code } }));
-  }
-
-  function open() {
-    trigger?.setAttribute("aria-expanded", "true");
-    listbox?.removeAttribute("hidden");
-    selector?.classList.add("language-selector--open");
-  }
-
-  function close() {
-    trigger?.setAttribute("aria-expanded", "false");
-    listbox?.setAttribute("hidden", "");
-    selector?.classList.remove("language-selector--open");
-  }
-
-  function toggleDropdown() {
-    const isClosed = listbox?.hasAttribute("hidden");
-    if (isClosed) open();
-    else close();
-  }
-
-  trigger?.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleDropdown();
-  });
-
-  listbox?.querySelectorAll("[data-lang-code]").forEach((li) => {
-    const btn = li.querySelector("button");
-    const code = li.getAttribute("data-lang-code");
-    btn?.addEventListener("click", (e) => {
+    // --- Event Logic ---
+    
+    trigger?.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (code) applyLang(code);
-      close();
+      // 1. Get current state as boolean
+      const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+      
+      // 2. Set the opposite state as a STRING
+      // We use `${!isExpanded}` to turn true -> "true" or false -> "false"
+      trigger.setAttribute("aria-expanded", `${!isExpanded}`);
+
+      // 3. For 'hidden', it's a "boolean attribute" in HTML
+      // It shouldn't have a value of "true/false", it should either exist or not.
+      if (isExpanded) {
+        listbox?.setAttribute("hidden", "");
+      } else {
+        listbox?.removeAttribute("hidden");
+      }
     });
+
+    options?.forEach((li) => {
+      const code = li.getAttribute("data-lang-code");
+      li.querySelector("button")?.addEventListener("click", () => {
+        applyLang(code);
+        // Trigger page translation update
+        if (window.updatePageTranslations) {
+          window.updatePageTranslations(code);
+        }
+        listbox?.setAttribute("hidden", "");
+        trigger?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", () => {
+      listbox?.setAttribute("hidden", "");
+      trigger?.setAttribute("aria-expanded", "false");
+    });
+
+    // Initialization: Run immediately on script load
+    const stored = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+    applyLang(stored);
+  }
+
+  // Initialize on first load
+  initLanguageSelector();
+
+  // Re-initialize after view transitions
+  document.addEventListener("astro:after-swap", () => {
+    initLanguageSelector();
   });
-
-  document.addEventListener("click", () => close());
-
-  document.addEventListener("astro:page-load", () => {
-    const code = getStoredLang();
-    applyLang(code);
-  });
-
-  const initial = getStoredLang();
-  applyLang(initial);
 </script>
 
 <style lang="scss">

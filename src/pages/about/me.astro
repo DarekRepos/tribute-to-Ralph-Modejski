@@ -6,19 +6,23 @@ import Layout from "../../layouts/Page.astro";
 <Layout>
     <Container>
         <section class="tribute-text">
-            <h2>About me and this website</h2>
-            <p>
+            <h2 data-i18n="about.title">About me and this website</h2>
+            <p data-i18n="about.p1">
                 This is the second version of my project, which I decided to
                 create as my own while learning HTML and CSS.
             </p>
-            <p>It's a tribute page built with Astro.</p>
-            <p>
+            <p data-i18n="about.p2">It's a tribute page built with Astro.</p>
+            <p data-i18n="about.p3">
                 I chose Ralph Modjeski for this tribute page because I want to
                 highlight the story of this master engineer while also learning
                 new technology.
             </p>
         </section>
     </Container>
+    <script>
+        import { initTranslations } from "../../utils/i18n-client";
+        initTranslations();
+    </script>
 </Layout>
 
 <style lang="scss">
