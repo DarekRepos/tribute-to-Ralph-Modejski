@@ -6,15 +6,15 @@ import Layout from "../../layouts/Page.astro";
 <Layout>
     <Container>
         <section class="tribute-text">
-            <h2 class="article-title">Did You Know?</h2>
-            <p>Modjeski was considered</p>
-            <blockquote>America's greatest bridge builder.</blockquote>
-            <p>in 1903.</p>
-            <p>
+            <h2 class="article-title" data-i18n="sideNotes.title">Did You Know?</h2>
+            <p><span data-i18n="sideNotes.intro">Modjeski was considered</span></p>
+            <blockquote data-i18n="sideNotes.quote">America's greatest bridge builder.</blockquote>
+            <p><span data-i18n="sideNotes.year">in 1903.</span></p>
+            <p data-i18n="sideNotes.p1">
                 He built nearly <strong>40 bridges</strong> spanning the great rivers
                 of North America.
             </p>
-            <p>
+            <p data-i18n="sideNotes.p2">
                 He <strong>trained</strong> succeeding <strong
                     >generations of American bridge designers and builders</strong
                 >, including Joseph B. Strauss, chief engineer of San
@@ -22,6 +22,10 @@ import Layout from "../../layouts/Page.astro";
             </p>
         </section>
     </Container>
+    <script>
+        import { initTranslations } from "../../utils/i18n-client";
+        initTranslations();
+    </script>
 </Layout>
 
 <style lang="scss">

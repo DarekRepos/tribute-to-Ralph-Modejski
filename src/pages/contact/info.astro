@@ -7,17 +7,21 @@ import Layout from "../../layouts/Page.astro";
     <Container>
         <div class="container">
             <div class="contact-section">
-                <h2>Contact Me</h2>
-                <p>
+                <h2 data-i18n="contact.title">Contact Me</h2>
+                <p data-i18n="contact.description">
                     If you have any questions or need further information, feel
                     free to reach out to me via email.
                 </p>
-                <a href="mailto:email-me@darekduda.pl" class="email-link"
+                <a href="mailto:email-me@darekduda.pl" class="email-link" data-i18n="contact.emailLink"
                     >Email Me</a
                 >
             </div>
         </div>
     </Container>
+    <script>
+        import { initTranslations } from "../../utils/i18n-client";
+        initTranslations();
+    </script>
 </Layout>
 <style lang="scss">
     .container {

@@ -7,10 +7,11 @@ import { Image } from "astro:assets";
 <Layout>
 	<Container>
 		<article class="container">
-			<h1 id="title" class="title">Ralph Modejski</h1>
+			<h1 id="title" class="title" data-i18n="home.title">Ralph Modejski</h1>
 			<figure class="img-caption">
 				<Image
 					src={"/tribute-to-Ralph-Modejski/images/Ralph.modrzejewski.webp"}
+					data-i18n-alt="home.imageAlt"
 					alt={"Rudolf Modrzejewski w 1931 roku"}
 					width={200}
 					height={257}
@@ -19,13 +20,17 @@ import { Image } from "astro:assets";
 					class="portrait"
 				/>
 
-				<figcaption>
+				<figcaption data-i18n="home.caption">
 					Civil engineer <br /> Ralph Modjeski (Rudolf Modrzejewski) <br
 					/> in 1931.
 				</figcaption>
 			</figure>
 		</article>
 	</Container>
+	<script>
+		import { initTranslations } from "../utils/i18n-client";
+		initTranslations();
+	</script>
 </Layout>
 
 <style lang="scss">

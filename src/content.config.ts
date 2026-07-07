@@ -1,7 +1,8 @@
-import { defineCollection, reference, z } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const footerSocialsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.json', base: './src/content/footersocials' }),
     schema: z.object({
         name: z.string(),
         url: z.string().url(),
@@ -10,7 +11,7 @@ const footerSocialsCollection = defineCollection({
 });
 
 const footerLinksCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.json', base: './src/content/footerlinks' }),
     schema: z.object({
         title: z.string(),
         items: z.array(z.object({
@@ -21,7 +22,7 @@ const footerLinksCollection = defineCollection({
 });
 
 const navLinksCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.json', base: './src/content/navlinks' }),
     schema: z.object({
         links: z.array(z.object({
             title: z.string(),
@@ -31,7 +32,7 @@ const navLinksCollection = defineCollection({
 });
 
 const metaInfoCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.json', base: './src/content/metaheadinfo' }),
     schema: z.object({
         title: z.string(),
         description: z.string(),
@@ -42,7 +43,7 @@ const metaInfoCollection = defineCollection({
 });
 
 const projectsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.json', base: './src/content/projects' }),
     schema: ({ image }) => z.object({
         id: z.number(),
         author: z.string(),

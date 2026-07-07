@@ -8,46 +8,52 @@ import Layout from "../../layouts/Page.astro";
     <Container>
         
         <section class="tribute-text" id="tribute-info">
-            <h2 class="article-title">Live</h2>
-            <p>
+            <h2 class="article-title" data-i18n="live.title">Live</h2>
+            <p data-i18n="live.p1">
                 He was <strong>born in Bochnia</strong> , then in Galicia, on January 27, 1861, to Gustav Sinnmayer
                 Modrzejewski and actress Helena Opid Modrzejewska (best known outside Poland as Helena Modjeska).
             </p>
-            <p>
+            <p data-i18n="live.p2">
                 He was a <strong>classmate of Ignacy Jan Paderewski in Poland </strong> and was a formidable pianist
                 in his own right.
             </p>
-            <p>
+            <p data-i18n="live.p3">
                 The son returned to Europe to study at l'Ecole des Ponts et Chaussées (<strong>the School of Bridges
                 and Roads</strong>) in Paris, France. It was in 1883, while studying at Paris, that he obtained
                 American citizenship. However, he always maintained contact with Poland, wrote much in Polish, and
                 emphasized his Polish origins.
             </p>
-            <p>
+            <p data-i18n="live.p4">
                 In 1885 he <strong>graduated from the School of Bridges and Roads at the top of his class</strong>.
                 The same year, he married Felicie Benda; the couple had three children. He would later marry
                 Virginia Mary Giblyn.
             </p>
-            <p>
+            <p data-i18n="live.p5">
                 Modjeski returned to America to begin his career, <strong>working first under the "father of
                 American bridge-building,"</strong> George S. Morison. In 1893, in Chicago, Modjeski <strong>opened
                 his own design office, which still exists as "Modjeski & Masters,"</strong> after it was joined in
                 1924 by Frank M. Masters.
             </p>
-            <p>
+            <p data-i18n="live.p6">
                 Modjeski's <strong>first project as chief engineer was the railroad bridge across the Mississippi
                 River at Rock Island, Illinois</strong>. During his career, he served as chief or consulting
                 engineer on dozens of bridges around the country.
             </p>
-            <p>
+            <p data-i18n="live.p7">
                 He took over the mis-designed Quebec Bridge after the 1907 disaster that killed 75 workers, and
                 <strong>succeeded in creating the longest truss span in the world</strong> (though a construction
                 accident killed another thirteen workers). It is still the longest cantilever bridge in the world.
             </p>
-            <p>
+            <p data-i18n="live.p8">
                 He died June 26, 1940, in Los Angeles, California.
             </p>
         </section>
+    </Container>
+    <script>
+        import { initTranslations } from "../../utils/i18n-client";
+        initTranslations();
+    </script>
+</Layout>
     </Container>
 </Layout>
 
